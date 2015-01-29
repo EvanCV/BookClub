@@ -22,6 +22,7 @@
 		94EF1D421A79BD89004196A1 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1D411A79BD89004196A1 /* Comment.m */; };
 		94EF1D451A79F98C004196A1 /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1D441A79F98C004196A1 /* BookViewController.m */; };
 		94EF1D481A7A0157004196A1 /* AddBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1D471A7A0157004196A1 /* AddBooksViewController.m */; };
+		94EF1D4B1A7A1874004196A1 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EF1D4A1A7A1874004196A1 /* CommentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		94EF1D441A79F98C004196A1 /* BookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookViewController.m; sourceTree = "<group>"; };
 		94EF1D461A7A0157004196A1 /* AddBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBooksViewController.h; sourceTree = "<group>"; };
 		94EF1D471A7A0157004196A1 /* AddBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBooksViewController.m; sourceTree = "<group>"; };
+		94EF1D491A7A1874004196A1 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		94EF1D4A1A7A1874004196A1 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				94EF1D461A7A0157004196A1 /* AddBooksViewController.h */,
 				94EF1D471A7A0157004196A1 /* AddBooksViewController.m */,
 				94EF1D0F1A79A899004196A1 /* Main.storyboard */,
+				94EF1D491A7A1874004196A1 /* CommentsViewController.h */,
+				94EF1D4A1A7A1874004196A1 /* CommentsViewController.m */,
 				94EF1D121A79A899004196A1 /* Images.xcassets */,
 				94EF1D141A79A899004196A1 /* LaunchScreen.xib */,
 				94EF1D091A79A899004196A1 /* BookClub.xcdatamodeld */,
@@ -265,6 +270,7 @@
 				94EF1D451A79F98C004196A1 /* BookViewController.m in Sources */,
 				94EF1D391A79B298004196A1 /* RootViewController.m in Sources */,
 				94EF1D361A79AD7A004196A1 /* DataManager.m in Sources */,
+				94EF1D4B1A7A1874004196A1 /* CommentsViewController.m in Sources */,
 				94EF1D421A79BD89004196A1 /* Comment.m in Sources */,
 				94EF1D051A79A899004196A1 /* main.m in Sources */,
 				94EF1D481A7A0157004196A1 /* AddBooksViewController.m in Sources */,

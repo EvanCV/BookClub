@@ -8,6 +8,7 @@
 
 #import "BookViewController.h"
 #import "AddBooksViewController.h"
+#import "CommentsViewController.h"
 #import "User.h"
 #import "Book.h"
 #import "Comment.h"
@@ -59,8 +60,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"Comments"])
+    {
+        CommentsViewController *cvc = segue.destinationViewController;
+        cvc.book = [self.booksArray objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        cvc.user = self.user;
+        
+    }
+    else
+    {
     AddBooksViewController *avc = segue.destinationViewController;
     avc.user = self.user;
+    }
     
 }
 
