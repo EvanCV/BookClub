@@ -7,31 +7,79 @@
 //
 
 #import "RootViewController.h"
+#import "PeopleViewController.h"
+#import "BookViewController.h"
+#import "User.h"
+#import "AppDelegate.h"
 
-@interface RootViewController ()
+@interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property User *mainUser;
+@property NSMutableArray *friendsListArray;
+@property NSManagedObjectContext *context;
+
 
 @end
 
 @implementation RootViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.context = delegate.managedObjectContext;
+    [self loadFromUsers];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:true];
+    [self loadFromUsers];
 }
 
-/*
-#pragma mark - Navigation
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    User *user = self.friendsListArray[indexPath.row];
+
+    cell.textLabel.text = user.name;
+
+
+    return cell;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.friendsListArray.count;
+}
+
+
+-(void)loadFromUsers
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    self.friendsListArray = [[self.context executeFetchRequest:request error:nil]mutableCopy];
+    self.mainUser = self.friendsListArray.firstObject;
+    self.friendsListArray = [[self.mainUser.friends allObjects]mutableCopy];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Book"])
+    {
+        BookViewController *bvc = segue.destinationViewController;
+        User *selectedUser = self.friendsListArray[self.tableView.indexPathForSelectedRow.row];
+        bvc.user = selectedUser;
+    }
+    else
+    {
+    PeopleViewController *pvc = segue.destinationViewController;
+    pvc.mainUser = self.mainUser;
+    pvc.context = self.context;
+    }
+}
 
 @end

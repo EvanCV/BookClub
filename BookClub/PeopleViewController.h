@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface ViewController : UIViewController
+@interface PeopleViewController : UIViewController
 
+@property User *user;
+@property User *mainUser;
+@property NSManagedObjectContext *context;
 
 @end
 
